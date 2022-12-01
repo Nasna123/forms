@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    
+    <div  style="background-color:yellow ;border:chartreuse solid;width:690px;height:680px;">
+        <h1 align="center">LOGIN FORM</h1>
+    <form action="homeform.html">
+    <label id="erroremail">email</label>
+    <input type="email" id="_email"><br>
+    <label id="errorpassword">password</label>
+    <input type="password" id="_password"><br><br>
+    <button onclick="validate()">login</button>
+</form>
+    </div>
+<script>
+flag=1;
+function validate(){
+    var email=document.getElementById('_email').value
+    var password=document.getElementById('_password').value
+    if(email ==""){
+        erroremail.innerHTML="please enter the email address";
+        erroremail.style.display="block";
+        erroremail.style.color="red";
+
+    }
+    else{
+        erroremail.style.display="none";
+        erroremail.style.color="blue";
+    }
+    if(password ==""){
+        errorpassword.innerHTML="please enter password";
+        errorpassword.style.display="block";
+        errorpassword.style.color="red";
+    }
+    else{
+        errorpassword.style.display="none";
+        errorpassword.style.color="blue";
+    }
+
+
+}
+</script>
+
+</body>
+</html>

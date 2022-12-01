@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center" style="background-color: rgb(236, 236, 248); margin-left: 5px;width:100%; height:500px;" >
+    <h1>Signup Form</h1>
+
+     <form action="loginform.html"> 
+
+        <label id="errormsg_user">firstname</label>
+        <input type="text" name="username" id="_username"><br><br>
+
+
+         <label>lastname</label>
+        <input type="text" name="" id=""><br><br>
+
+        <label id="erroremail">Email</label>
+        <input type="email" name="email" id="_email" onclick="validateemail()"><br><br>
+
+        <label id="errormobile">Mobile</label>
+        <input type="number" name="mobile" id="_mobile"  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required/><br><br>
+
+        <label id="errorpassword">Password</label>
+        <input type="password" name="password" id="_password" "><br><br>
+        <label id="errorconfirm">Confirm Password</label>
+        <input type="password" name="password" id="_confirm" onclick="confirm()"><br><br>
+        <div class="errors" hidden>
+            <ul>
+                <li id="capital">first letter capital</li>
+                <li id="special">contains one special character</li>
+                <li id="length">length greater than  8 characters</li>
+                <li id="notnull">shouldnot be empty</li>
+            </ul>
+        </div>
+         <button onclick="validate()"> Signup</button>
+        
+    </div>
+</form>
+    
+    <script>
+        flag=1;
+         function validateemail(){
+          var email=document.getElementById('_email').value;
+        var mailformat = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+                var mail=/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+         if(email==mailformat){
+              console.log(email);
+               return true;
+            }
+            else{
+               
+           }
+         }
+        flag=1;
+        function validate(){
+            
+            var username=document.getElementById('_username').value
+            console.log(username);
+             var email=document.getElementById('_email').value;
+             console.log(email);
+             var mobile=document.getElementById('_mobile').value;
+             console.log(mobile);
+             var password=document.getElementById('_password').value;
+             console.log(password);
+            var confirmpassword=document.getElementById('_confirm').value;
+             console.log(username);
+        
+        if(_username.value==" "){
+            errormsg_user.innerHTML="please enter first name";
+            errormsg_user.style.display="block";
+            errormsg_user.style.color="red";
+            _username.style.borderColor="red";
+            flag=0;
+        }
+        else{
+            _username.style.borderColor="blue";
+            errormsg_user.style.display="none";
+            flag=1;
+        }
+        if(_email.value==" "){
+            erroremail.innerHTML="please enter email address";
+            erroremail.style.display="block";
+            erroremail.style.color="red";
+            _email.style.borderColor="red";
+            flag=0;
+        }
+        else{
+            _email.style.borderColor="blue";
+            erroremail.style.display="none";
+            flag=1;
+        }
+
+        if(_mobile.value==" "){
+            errormobile.innerHTML="please enter mobile no";
+            errormobile.style.display="block";
+            errormobile.style.color="red";
+            _mobile.style.borderColor="red";
+            flag=0;
+        }
+        else{
+            _mobile.style.borderColor="blue";
+            errormobile.style.display="none";
+            flag=1;
+        }
+        if(_password.value==" "){
+            errorpassword.innerHTML="please enter password";
+            errorpassword.style.display="block";
+            errorpassword.style.color="red";
+            _password.style.borderColor="red";
+            flag=0;
+        }
+        else{
+            _password.style.borderColor="blue";
+            errorpassword.style.display="none";
+            flag=1;
+        }
+    }
+        // if(_password.value != _confirm.value){
+        //     errorconfirm.innerHTML="should be match with the password";
+        //     errorconfirm.style.display="block";
+        //     errorconfirm.style.color="red";
+        //     _confirm.style.borderColor="red";
+        // }
+        // else{
+        //     _confirm.style.borderColor="blue";
+        //     errorconfirm.style.display="none";
+        // }
+    
+    // function validatep(){
+    //     var pass=document.getElementById(_password).value;
+    //     var capital=document.getElementById(_capital).value;
+    //     var special=document.getElementById(_special).value;
+    //     var length=document.getElementById(_length).value;
+    //     // var notnull=document.getElementById(_notnull).value;
+    //     if(_password.value.match(/[A-Z]/)){
+    //         capital.style.color='green';
+    //     }
+    //     else{
+    //         capital.style.color='red';
+    //     }
+    //     if(_password.value.match(/[!/@/#/$/%/^/&/*/(/)/_/+/=/?/>/</]/)){
+    //         special.style.color='green';
+    //     }
+    //     else{
+    //         special.style.color='red';
+    //     }
+    //     if(_password.value.length <8){
+    //         length.style.color='red';
+    //     }
+    //     else{
+    //         length.style.color='green';
+    //     }
+    // }
+
+    //     if(_password==""){
+    //         alert('enter your password')
+    //     }
+    //     else{
+    //         _password.style.display="none"
+    //     }
+    
+    // function confirm(){
+    //     var pass1=document.getElementById('_password').value;
+    //     var pass2=document.getElementById('_confirm').value;
+    //     if(pass1.value==pass2.value){
+    //         document.getElementById('capital').style.display="none";
+    //         document.getElementById('special').style.display="none";
+    //         document.getElementById('length').style.display="none";
+    //         document.getElementById('notnull').style.display="none";
+    //     }
+    //     else{
+    //         document.getElementById('capital').style.display="block";
+    //         document.getElementById('special').style.display="block";
+    //         document.getElementById('length').style.display="block";
+    //         document.getElementById('notnull').style.display="block";
+    //     }
+    //  }
+   
+       
+    
+
+    </script>
+    
+</body>
+</html>
